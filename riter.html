@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<!-- upto 2 directory depth-->
+<html lang="en-US">
+
+<head>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+  <script>
+    window.addEventListener('contextmenu', function (e) {
+      e.preventDefault();
+    }, false);
+  </script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mundrawala</title>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+  <link rel="icon" href="favicon.png" type="image/png" sizes="16x12">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" media="print"
+    onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700;800&amp;display=swap" />
+  </noscript>
+  <link href="./css/font-awesome/css/all.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap-icons/bootstrap-icons.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/bootstrap.min.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
+  <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+        opacity: 1 !important;
+        transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+
+</head>
+
+<body id="mrtz" ondragstart="return false">
+  <header class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
+      <div class="container">
+        <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
+            src="images/logo.png" alt=""></a>
+        <a class="link-dark navbar-brand site-title mb-0"><span
+            style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
+            Words</span></a>
+      </div>
+    </nav>
+
+  </header>
+  <div class="page-content">
+    <div id="content">
+      <div class="section px-3 px-lg-4 pt-5" id="note">
+        <div class="container-narrow">
+          <div class=" mb-5">
+            Title{{message}}
+            <input type="text" style="width: 100%;" />
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <input type="date" />
+            <input type="file" />
+          </div>
+          <input type="text" id="summernote" v-model="message"/>
+          <script>
+            new Vue({
+              el: '#note',
+              data: {
+                message: 'Hello Vue!'
+              }
+            })
+            $('#summernote').summernote({
+              placeholder: 'Hello stand alone ui',
+              tabsize: 2,
+              height: 120,
+              toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+              ]
+            });
+          </script>
+        </div>
+      </div>
+
+      <footer class="pt-1 pb-1 text-center bg-light">
+        <div class="container">
+          <div class="my-3">
+            <img src="favicon.png" height="40" width="55" style="padding: 5px; border-radius: 12px; ;" />
+            <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
+            <p>Web Developer & Mobile Application Developer</p>
+            <div class="social-nav">
+              <nav role="navigation">
+                <ul class="nav justify-content-center">
+                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
+                        class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
+                      title="Facebook"><i class="fab fa-facebook"></i><span
+                        class="menu-title sr-only">Facebook</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
+                      title="Instagram"><i class="fab fa-instagram"></i><span
+                        class="menu-title sr-only">Instagram</span></a></li>
+                  <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
+                      title="LinkedIn"><i class="fab fa-linkedin"></i><span
+                        class="menu-title sr-only">LinkedIn</span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <div class="text-small text-secondary">
+            <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
+
+          </div>
+      </footer>
+    </div>
+  </div>
+  <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
+          class="fas fa-angle-up fa-x"></i></span></a></div>
+  <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+  <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+  <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
+  <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
+  <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+  <script src="./scripts/aos.min.js?ver=1.2.0"></script>
+  <script src="./scripts/main.js?ver=1.2.0"></script>
+</body>
+<script>
+  new Vue({
+    el: '#mrtz',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
+</script>
+
+</html>
