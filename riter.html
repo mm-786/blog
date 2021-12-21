@@ -49,11 +49,12 @@
 
 </head>
 
-<body id="mrtz" ondragstart="return false">
+<body  ondragstart="return false">
+  <div id="mrtz">
   <header class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
       <div class="container">
-        <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
+        <a class="link-dark navbar-brand site-title mb-0" href="https://blog.mundrawala.ml/" target="blank"><img
             src="images/logo.png" alt=""></a>
         <a class="link-dark navbar-brand site-title mb-0"><span
             style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
@@ -67,36 +68,18 @@
       <div class="section px-3 px-lg-4 pt-5" id="note">
         <div class="container-narrow">
           <div class=" mb-5">
-            Title{{message}}
-            <input type="text" style="width: 100%;" />
+           
+            <input class="btn btn-primary shadow-sm mt-1 hover-effect" v-model="title" placeholder="Title" type="text" style="width: 100%;" />
+  
           </div>
-          <div style="display: flex; justify-content: space-between;">
-            <input type="date" />
-            <input type="file" />
+          <div class="mb-5" style="justify-content: space-between; display: flex;">
+            <input class="btn btn-primary shadow-sm mt-1 hover-effect" type="date" v-model="date" placeholder="" />
+
+            <input type="button" class="btn btn-primary shadow-sm mt-1 hover-effect" @click="getCode()" value="SUBMIT" />
           </div>
-          <input type="text" id="summernote" v-model="message"/>
-          <script>
-            new Vue({
-              el: '#note',
-              data: {
-                message: 'Hello Vue!'
-              }
-            })
-            $('#summernote').summernote({
-              placeholder: 'Hello stand alone ui',
-              tabsize: 2,
-              height: 120,
-              toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-              ]
-            });
-          </script>
+          <div style="margin-bottom: 25px;">
+          <div type="text"  id="summernote" v-model="message"></div>
+        </div>
         </div>
       </div>
 
@@ -126,7 +109,6 @@
           </div>
           <div class="text-small text-secondary">
             <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
-
           </div>
       </footer>
     </div>
@@ -140,14 +122,40 @@
   <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
   <script src="./scripts/aos.min.js?ver=1.2.0"></script>
   <script src="./scripts/main.js?ver=1.2.0"></script>
+  <script>
+    new Vue({
+      el: '#mrtz',
+      data: {
+        message: "",
+        title:'',
+        date:''
+      },
+      mounted(){
+        $('#summernote').summernote({
+              tabsize: 4,
+              height: 500,
+              toolbar: [
+                ['style', ['style','undo','redo']],
+                ['font', ['fontname','fontsize','bold', 'underline', 'clear','italic','strikethrough', 'superscript', 'subscript']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']],
+                ['insert', ['link', 'picture', 'video','table']],
+                ['view', ['fullscreen', 'codeview', 'help']],
+               
+              ]
+            });
+      },
+      methods:{
+        getCode(){
+          this.message = $('#summernote').summernote('code');
+        }
+      }
+    })
+  </script>
+  </div>
+  
 </body>
-<script>
-  new Vue({
-    el: '#mrtz',
-    data: {
-      message: 'Hello Vue!'
-    }
-  })
-</script>
+
 
 </html>
