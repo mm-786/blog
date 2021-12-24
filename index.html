@@ -45,89 +45,125 @@
 
 </head>
 
-<body id="mrtz" ondragstart="return false">
+<body ondragstart="return false">
 
+  <div id="mrtz">
+    <header class="bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
+        <div class="container">
+          <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
+              src="images/logo.png" alt=""></a>
+          <a class="link-dark navbar-brand site-title mb-0"><span
+              style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
+              Words</span></a>
+        </div>
+      </nav>
 
-  <header class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
-      <div class="container">
-        <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
-            src="images/logo.png" alt=""></a>
-        <a class="link-dark navbar-brand site-title mb-0"><span
-            style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
-            Words</span></a>
-      </div>
-    </nav>
-
-  </header>
-  <div class="page-content">
-    <div id="content">
-      <div class="section px-3 px-lg-4 pt-5">
-        <div class="container-narrow">
-          <div class="text-center mb-5">
-            <h2 class="marker marker-center">My Blog</h2>
-          </div>
-          <div class="row">
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-              <div class="title-box row">
-                <div class="col-md-2" >
-                <span style="background-color: black; border-radius: 2px; padding: 2px; margin: 2px; font-weight: bold; text-align: center; color: wheat;">00</span>
-              </div>
-                <span class="h6 col-md-10" style="word-wrap: break-word;">UI/UXadasfadsjbdhjasvdvsjasdsabvmsajbkusbmh</span>
-                <div style="font-size: 10px; font-weight: bold; margin:5px; color: grey; justify-content: space-between; display: flex;">
-                  <span>21/12/21</span>
-                  <span>6 mins</span>
+    </header>
+    <div class="page-content">
+      <div id="content">
+        <div class="section px-3 px-lg-4 pt-5">
+          <div class="container-narrow">
+            <div class="text-center mb-5">
+              <h2 class="marker marker-center">My Blog</h2>
+            </div>
+            <div class="row">
+              <div class="col-md-4" data-aos="fade-up" v-for="post,i in posts" :key="i" :data-aos-delay="i*100">
+                <div class="title-box row">
+                  <div class="col-md-2">
+                    <span v-if="i+1<10"
+                      style="background-color: black; border-radius: 2px; padding: 2px; margin: 2px; font-weight: bold; text-align: center; color: wheat;">0{{i+1}}</span>
+                      <span v-if="i+1>9"
+                      style="background-color: black; border-radius: 2px; padding: 2px; margin: 2px; font-weight: bold; text-align: center; color: wheat;">{{i+1}}</span>
+                  </div>
+                  <span class="h6 col-md-10"
+                    style="no-wrap: break-word;">{{post.title}}</span>
+                  <div style="font-size: 10px; font-weight: bold; margin:5px; color: grey; display: flex;">
+                    <span>{{post.date}}</span>
+                  </div>
+                  <div class="text-center">
+                    <a :href="'/content.html/'+post.key" style="color: gray; font-size: small; font-weight: 600; text-decoration: none;">Read
+                      More</a>
+                  </div>
                 </div>
-                <div class="text-center">
-                <a href="#" style="color: gray; font-size: small; font-weight: 600; text-decoration: none;">Read More</a>
-              </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <footer class="pt-1 pb-1 text-center bg-light">
-        <div class="container">
-          <div class="my-3">
-            <img src="favicon.png" height="40" width="55"
-              style="padding: 5px; border-radius: 12px; ;" />
-            <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
-            <p>Web Developer & Mobile Application Developer</p>
-            <div class="social-nav">
-              <nav role="navigation">
-                <ul class="nav justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
-                        class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
-                      title="Facebook"><i class="fab fa-facebook"></i><span
-                        class="menu-title sr-only">Facebook</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
-                      title="Instagram"><i class="fab fa-instagram"></i><span
-                        class="menu-title sr-only">Instagram</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
-                      title="LinkedIn"><i class="fab fa-linkedin"></i><span
-                        class="menu-title sr-only">LinkedIn</span></a></li>
-                </ul>
-              </nav>
+        <footer class="pt-1 pb-1 text-center bg-light">
+          <div class="container">
+            <div class="my-3">
+              <img src="favicon.png" height="40" width="55" style="padding: 5px; border-radius: 12px; ;" />
+              <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
+              <p>Web Developer & Mobile Application Developer</p>
+              <div class="social-nav">
+                <nav role="navigation">
+                  <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
+                          class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
+                        title="Facebook"><i class="fab fa-facebook"></i><span
+                          class="menu-title sr-only">Facebook</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
+                        title="Instagram"><i class="fab fa-instagram"></i><span
+                          class="menu-title sr-only">Instagram</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
+                        title="LinkedIn"><i class="fab fa-linkedin"></i><span
+                          class="menu-title sr-only">LinkedIn</span></a></li>
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </div>
-          <div class="text-small text-secondary">
-            <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
+            <div class="text-small text-secondary">
+              <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
 
-          </div>
-      </footer>
+            </div>
+        </footer>
+      </div>
     </div>
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
+            class="fas fa-angle-up fa-x"></i></span></a></div>
+    <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
+    <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
+    <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="./scripts/aos.min.js?ver=1.2.0"></script>
+    <script src="./scripts/main.js?ver=1.2.0"></script>
+    <script>
+      new Vue({
+        el: '#mrtz',
+        data: {
+         posts:[]
+        },
+        mounted() {
+          const myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+          myHeaders.append("token", "mUrtAzA11mUnIrA22");
+
+          const requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+          };
+
+          fetch("https://api.mundrawala.ml/posts", requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              const data = JSON.parse(result);
+              this.posts= data.items;
+            })
+            .catch(error => console.log('error', error));
+        },
+        methods: {
+          getCode() {
+            this.message = $('#summernote').summernote('code');
+          }
+        }
+      })
+    </script>
   </div>
-  <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
-          class="fas fa-angle-up fa-x"></i></span></a></div>
-  <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
-  <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
-  <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-  <script src="./scripts/aos.min.js?ver=1.2.0"></script>
-  <script src="./scripts/main.js?ver=1.2.0"></script>
 </body>
 
 </html>

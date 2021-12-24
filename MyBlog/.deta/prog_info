@@ -1,0 +1,1 @@
+{"id":"205fe3c7-3891-4853-9287-86cc87e05e95","space":7649,"runtime":"nodejs14.x","name":"MyBlog","path":"waie9w","project":"c06h981w","account":"144798365827","region":"ap-southeast-1","deps":["express@^4.17.2","deta@^1.0.1","cors@^2.8.5"],"envs":null,"public":true,"log_level":"debug","cron":""}
