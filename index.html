@@ -15,7 +15,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mundrawala</title>
+  <title>Blog | Mundrawala</title>
 
   <link rel="icon" href="favicon.png" type="image/png" sizes="16x12">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
@@ -53,7 +53,7 @@
         <div class="container">
           <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
               src="images/logo.png" alt=""></a>
-          <a class="link-dark navbar-brand site-title mb-0"><span
+          <a class="link-dark navbar-brand site-title mb-0" href="riter.html"><span
               style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
               Words</span></a>
         </div>
@@ -61,6 +61,7 @@
 
     </header>
     <div class="page-content">
+     
       <div id="content">
         <div class="section px-3 px-lg-4 pt-5">
           <div class="container-narrow">
@@ -77,12 +78,12 @@
                       style="background-color: black; border-radius: 2px; padding: 2px; margin: 2px; font-weight: bold; text-align: center; color: wheat;">{{i+1}}</span>
                   </div>
                   <span class="h6 col-md-10"
-                    style="no-wrap: break-word;">{{post.title}}</span>
+                    style="word-wrap: break-word;">{{post.title}}</span>
                   <div style="font-size: 10px; font-weight: bold; margin:5px; color: grey; display: flex;">
                     <span>{{post.date}}</span>
                   </div>
                   <div class="text-center">
-                    <a :href="'/content.html/'+post.key" style="color: gray; font-size: small; font-weight: 600; text-decoration: none;">Read
+                    <a :href="'content.html?title='+post.key" target="blank" style="color: gray; font-size: small; font-weight: 600; text-decoration: none;">Read
                       More</a>
                   </div>
                 </div>
@@ -135,7 +136,7 @@
       new Vue({
         el: '#mrtz',
         data: {
-         posts:[]
+         posts:[],
         },
         mounted() {
           const myHeaders = new Headers();
@@ -153,14 +154,10 @@
             .then(result => {
               const data = JSON.parse(result);
               this.posts= data.items;
+              
             })
             .catch(error => console.log('error', error));
         },
-        methods: {
-          getCode() {
-            this.message = $('#summernote').summernote('code');
-          }
-        }
       })
     </script>
   </div>

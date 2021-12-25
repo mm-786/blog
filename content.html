@@ -15,7 +15,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mundrawala</title>
+  <title>Blog | Mundrawala</title>
 
   <link rel="icon" href="favicon.png" type="image/png" sizes="16x12">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin" />
@@ -45,98 +45,117 @@
 
 </head>
 
-<body id="mrtz" ondragstart="return false">
+<body ondragstart="return false">
 
+  <div id="mrtz">
+    <header class="bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
+        <div class="container">
+          <a class="link-dark navbar-brand site-title mb-0" href="https://blog.mundrawala.ml/" target="blank"><img
+              src="images/logo.png" alt=""></a>
+          <a class="link-dark navbar-brand site-title mb-0" href="riter.html"><span
+              style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
+              Words</span></a>
+        </div>
+      </nav>
 
-  <header class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
-      <div class="container">
-        <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
-            src="images/logo.png" alt=""></a>
-        <a class="link-dark navbar-brand site-title mb-0"><span
-            style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
-            Words</span></a>
-      </div>
-    </nav>
-
-  </header>
-  <div class="page-content">
-    <div id="content">
-      <div class="section px-3 px-lg-4 pt-5">
-        <div class="container-narrow">
-          <div class="text-center mb-5">
-            <h2 class="marker-center"><<<<<<<<<<<<<<<<<<<<<< Heading >>>>>>>>>>>>>>>>>>>>>></h2>
-          </div>
-          <span style="color: gray; margin: 15px;">
-          dd/mm/yyyy</span>
-          <div class="row" style="margin: 20px;">
-            <div class="col" style="display: flex; justify-content: space-around;">dsfg</div>
-            <div class="col" style="display: flex; justify-content: space-around;">dsfg</div>
-          </div>
-          <div class="row">
-            <div class="col-md-12" data-aos="fade-up" data-aos-delay="500">
-              <div class="content-box">
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
-                davbj chkmh bjk jtsdv dryreb dgdryd srestsb srv te srcse sarsr edesrey ae 
+    </header>
+    <div class="page-content">
+      <div id="content">
+        <div class="section px-3 px-lg-4 pt-5">
+          <div class="container-narrow">
+            <div class="text-center mb-5">
+              <h2 class="marker-center" style="text-transform: capitalize;">
+               {{post.title}}
+              </h2>
+            </div>
+            <span style="color: gray; margin: 15px;">
+              {{post.date}}</span>
+            <div class="row" style="margin: 20px;">
+              <!-- <div class="col" style="display: flex; justify-content: space-around;">dsfg</div>
+              <div class="col" style="display: flex; justify-content: space-around;">dsfg</div> -->
+            </div>
+            <div class="row">
+              <div class="col-md-12" data-aos="fade-up" data-aos-delay="500" style="width: 100%; word-wrap: break-word;">
+                <div class="content-box" v-html="decodeURIComponent(post.content)">
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <footer class="pt-1 pb-1 text-center bg-light">
-        <div class="container">
-          <div class="my-3">
-            <img src="favicon.png" height="40" width="55"
-              style="padding: 5px; border-radius: 12px; ;" />
-            <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
-            <p>Web Developer & Mobile Application Developer</p>
-            <div class="social-nav">
-              <nav role="navigation">
-                <ul class="nav justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
-                        class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
-                      title="Facebook"><i class="fab fa-facebook"></i><span
-                        class="menu-title sr-only">Facebook</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
-                      title="Instagram"><i class="fab fa-instagram"></i><span
-                        class="menu-title sr-only">Instagram</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
-                      title="LinkedIn"><i class="fab fa-linkedin"></i><span
-                        class="menu-title sr-only">LinkedIn</span></a></li>
-                </ul>
-              </nav>
+        <footer class="pt-1 pb-1 text-center bg-light">
+          <div class="container">
+            <div class="my-3">
+              <img src="favicon.png" height="40" width="55" style="padding: 5px; border-radius: 12px; ;" />
+              <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
+              <p>Web Developer & Mobile Application Developer</p>
+              <div class="social-nav">
+                <nav role="navigation">
+                  <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
+                          class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
+                        title="Facebook"><i class="fab fa-facebook"></i><span
+                          class="menu-title sr-only">Facebook</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
+                        title="Instagram"><i class="fab fa-instagram"></i><span
+                          class="menu-title sr-only">Instagram</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
+                        title="LinkedIn"><i class="fab fa-linkedin"></i><span
+                          class="menu-title sr-only">LinkedIn</span></a></li>
+                  </ul>
+                </nav>
+              </div>
             </div>
-          </div>
-          <div class="text-small text-secondary">
-            <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
+            <div class="text-small text-secondary">
+              <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
 
-          </div>
-      </footer>
+            </div>
+        </footer>
+      </div>
     </div>
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
+            class="fas fa-angle-up fa-x"></i></span></a></div>
+    <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
+    <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
+    <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="./scripts/aos.min.js?ver=1.2.0"></script>
+    <script src="./scripts/main.js?ver=1.2.0"></script>
+    <script>
+      new Vue({
+        el: '#mrtz',
+        data: {
+          post: {}
+        },
+        mounted() {
+          const url_string = window.location.href
+          const url = new URL(url_string);
+          const key = url.searchParams.get("title");
+          const myHeaders = new Headers();
+          myHeaders.append("Content-Type", "application/json");
+          myHeaders.append("token", "mUrtAzA11mUnIrA22");
+
+          const requestOptions = {
+            method: 'GET',
+            headers: myHeaders,
+            redirect: 'follow'
+          };
+
+          fetch("https://api.mundrawala.ml/post/"+key, requestOptions)
+            .then(response => response.text())
+            .then(result => {
+              this.post = JSON.parse(result)
+            })
+            .catch(error => console.log('error', error));
+
+        },
+
+      })
+    </script>
   </div>
-  <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
-          class="fas fa-angle-up fa-x"></i></span></a></div>
-  <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
-  <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
-  <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-  <script src="./scripts/aos.min.js?ver=1.2.0"></script>
-  <script src="./scripts/main.js?ver=1.2.0"></script>
 </body>
 
 </html>

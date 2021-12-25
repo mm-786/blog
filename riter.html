@@ -7,15 +7,15 @@
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-  <script>
+  <!-- <script>
     window.addEventListener('contextmenu', function (e) {
       e.preventDefault();
     }, false);
-  </script>
+  </script> -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mundrawala</title>
+  <title>Blog | Mundrawala</title>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
     crossorigin="anonymous"></script>
@@ -39,122 +39,171 @@
   <link href="./css/aos.css?ver=1.2.0" rel="stylesheet">
   <link href="./css/main.css?ver=1.2.0" rel="stylesheet">
   <noscript>
-    <style type="text/css">
+    <!-- <style type="text/css">
       [data-aos] {
         opacity: 1 !important;
         transform: translate(0) scale(1) !important;
       }
-    </style>
+    </style> -->
   </noscript>
 
 </head>
 
-<body  ondragstart="return false">
+<body ondragstart="return false">
   <div id="mrtz">
-  <header class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
-      <div class="container">
-        <a class="link-dark navbar-brand site-title mb-0" href="https://blog.mundrawala.ml/" target="blank"><img
-            src="images/logo.png" alt=""></a>
-        <a class="link-dark navbar-brand site-title mb-0"><span
-            style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
-            Words</span></a>
-      </div>
-    </nav>
-
-  </header>
-  <div class="page-content">
-    <div id="content">
-      <div class="section px-3 px-lg-4 pt-5" id="note">
-        <div class="container-narrow">
-          <div class=" mb-5">
-           
-            <input class="btn btn-primary shadow-sm mt-1 hover-effect" v-model="title" placeholder="Title" type="text" style="width: 100%;" />
-  
-          </div>
-          <div class="mb-5" style="justify-content: space-between; display: flex;">
-            <input class="btn btn-primary shadow-sm mt-1 hover-effect" type="date" v-model="date" placeholder="" />
-
-            <input type="button" class="btn btn-primary shadow-sm mt-1 hover-effect" @click="getCode()" value="SUBMIT" />
-          </div>
-          <div style="margin-bottom: 25px;">
-          <div type="text"  id="summernote" v-model="message"></div>
-        </div>
-        </div>
-      </div>
-
-      <footer class="pt-1 pb-1 text-center bg-light">
+    <header class="bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="header-nav" role="navigation">
         <div class="container">
-          <div class="my-3">
-            <img src="favicon.png" height="40" width="55" style="padding: 5px; border-radius: 12px; ;" />
-            <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
-            <p>Web Developer & Mobile Application Developer</p>
-            <div class="social-nav">
-              <nav role="navigation">
-                <ul class="nav justify-content-center">
-                  <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
-                        class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
-                      title="Facebook"><i class="fab fa-facebook"></i><span
-                        class="menu-title sr-only">Facebook</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
-                      title="Instagram"><i class="fab fa-instagram"></i><span
-                        class="menu-title sr-only">Instagram</span></a></li>
-                  <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
-                      title="LinkedIn"><i class="fab fa-linkedin"></i><span
-                        class="menu-title sr-only">LinkedIn</span></a></li>
-                </ul>
-              </nav>
+          <a class="link-dark navbar-brand site-title mb-0" href="https://blog.mundrawala.ml/" target="blank"><img
+              src="images/logo.png" alt=""></a>
+          <a class="link-dark navbar-brand site-title mb-0"><span
+              style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
+              Words</span></a>
+        </div>
+      </nav>
+
+    </header>
+    <div class="page-content">
+      <div v-if="load" id="content" style="position: fixed;
+      top: 50%;
+      left: 50%;">
+        <img src="images/logo.png" />
+      </div>
+      <div v-if="!load" id="content">
+        <div class="section px-3 px-lg-4 pt-5" id="note">
+          <div class="container-narrow">
+            <div>
+              <div class="btn btn-primary shadow-sm mt-1 hover-effect" style="width: 100%;">
+                <label for="title" style="font-weight: bold; font-size: larger; color: rgb(83, 77, 77);">Title</label>
+                <input name="title" v-model="title" placeholder="Title" type="text"
+                  style="width: 100%; text-align: center; background-color: transparent; border: none; outline: none;" />
+              </div>
+            </div>
+            <div>
+              <div class="btn btn-primary shadow-sm mt-1 hover-effect" style="width: 100%;">
+                <label for="tags" style="font-weight: bold; font-size: larger; color: rgb(83, 77, 77);">Tags</label>
+                <input v-model="tags" name="tags" placeholder="python,html,css" type="text"
+                  style="width: 100%; background-color: transparent; border: none; outline: none;" />
+              </div>
+            </div>
+            <div style="margin-bottom: 25px; margin-top: 25px;">
+              <div type="text" id="summernote" v-model="message"></div>
+              <input type="button" :disabled="!auth" class="btn btn-primary shadow-sm mt-1 hover-effect"
+                @click="submitPost()" :value="auth?'SUBMIT':'Unauthorized'" />
             </div>
           </div>
-          <div class="text-small text-secondary">
-            <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
-          </div>
-      </footer>
+        </div>
+
+        <footer class="pt-1 pb-1 text-center bg-light">
+          <div class="container">
+            <div class="my-3">
+              <img src="favicon.png" height="40" width="55" style="padding: 5px; border-radius: 12px; ;" />
+              <div class="h4"><a href="https://www.mundrawala.ml/">Murtaza Mundrawala</a></div>
+              <p>Web Developer & Mobile Application Developer</p>
+              <div class="social-nav">
+                <nav role="navigation">
+                  <ul class="nav justify-content-center">
+                    <li class="nav-item"><a class="nav-link" href="https://twitter.com/mundrawala18" title="Twitter"><i
+                          class="fab fa-twitter"></i><span class="menu-title sr-only">Twitter</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.facebook.com/mundrawala18"
+                        title="Facebook"><i class="fab fa-facebook"></i><span
+                          class="menu-title sr-only">Facebook</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.instagram.com/m.mundrawala/"
+                        title="Instagram"><i class="fab fa-instagram"></i><span
+                          class="menu-title sr-only">Instagram</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://www.linkedin.com/in/mundrawala"
+                        title="LinkedIn"><i class="fab fa-linkedin"></i><span
+                          class="menu-title sr-only">LinkedIn</span></a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="text-small text-secondary">
+              <div class="mb-1">&copy; Murtaza Mundrawala. All rights reserved.</div>
+            </div>
+        </footer>
+      </div>
     </div>
-  </div>
-  <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
-          class="fas fa-angle-up fa-x"></i></span></a></div>
-  <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
-  <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
-  <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
-  <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
-  <script src="./scripts/aos.min.js?ver=1.2.0"></script>
-  <script src="./scripts/main.js?ver=1.2.0"></script>
-  <script>
-    new Vue({
-      el: '#mrtz',
-      data: {
-        message: "",
-        title:'',
-        date:''
-      },
-      mounted(){
-        $('#summernote').summernote({
-              tabsize: 4,
-              height: 500,
-              toolbar: [
-                ['style', ['style','undo','redo']],
-                ['font', ['fontname','fontsize','bold', 'underline', 'clear','italic','strikethrough', 'superscript', 'subscript']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['height', ['height']],
-                ['insert', ['link', 'picture', 'video','table']],
-                ['view', ['fullscreen', 'codeview', 'help']],
-               
-              ]
+    <div id="scrolltop"><a class="btn btn-secondary" href="#top"><span class="icon"><i
+            class="fas fa-angle-up fa-x"></i></span></a></div>
+    <script src="./scripts/imagesloaded.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/masonry.pkgd.min.js?ver=1.2.0"></script>
+    <script src="./scripts/BigPicture.min.js?ver=1.2.0"></script>
+    <script src="./scripts/purecounter.min.js?ver=1.2.0"></script>
+    <script src="./scripts/bootstrap.bundle.min.js?ver=1.2.0"></script>
+    <script src="./scripts/aos.min.js?ver=1.2.0"></script>
+    <script src="./scripts/main.js?ver=1.2.0"></script>
+    <script>
+      new Vue({
+        el: '#mrtz',
+        data: {
+          message: "",
+          title: '',
+          tags: '',
+          auth: false,
+          load:false,
+        },
+        mounted() {
+          window.localStorage.setItem('mrtz', 'munira')
+          if (window.localStorage.getItem('mrtz') == 'munira') {
+            this.auth = true;
+          }
+          $('#summernote').summernote({
+            tabsize: 4,
+            height: 500,
+            toolbar: [
+              ['style', ['style', 'undo', 'redo']],
+              ['font', ['fontname', 'fontsize', 'bold', 'underline', 'clear', 'italic', 'strikethrough', 'superscript', 'subscript']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['height', ['height']],
+              ['insert', ['link', 'picture', 'video', 'table']],
+              ['view', ['fullscreen', 'codeview', 'help']],
+
+            ]
+          });
+        },
+        methods: {
+          getCode() {
+            const cont = $('#summernote')
+            this.message = encodeURIComponent(cont.summernote('code'));
+
+          },
+          submitPost() {
+            this.load = true;
+            this.getCode();
+            const myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+            myHeaders.append("token", "mUrtAzA11mUnIrA22");
+
+            const raw = JSON.stringify({
+              "title": this.title,
+              "content": this.message,
             });
-      },
-      methods:{
-        getCode(){
-          this.message = $('#summernote').summernote('code');
+
+            const requestOptions = {
+              method: 'POST',
+              headers: myHeaders,
+              body: raw,
+              redirect: 'follow'
+            };
+
+            fetch("https://api.mundrawala.ml/post", requestOptions)
+              .then(response => response.text())
+              .then(result => {
+                this.load = false
+                location.reload();
+                console.log(result)})
+              .catch(error => {
+                this.load=false
+                console.log('error', error)});
+
+          }
         }
-      }
-    })
-  </script>
+      })
+    </script>
   </div>
-  
+
 </body>
 
 
