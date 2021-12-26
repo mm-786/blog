@@ -5,7 +5,7 @@ new Vue({
     title: '',
     tags: '',
     auth: false,
-    load:false,
+    load: false,
   },
   mounted() {
     if (window.localStorage.getItem('mrtz') == 'munira') {
@@ -51,15 +51,19 @@ new Vue({
         redirect: 'follow'
       };
 
-      fetch("https://api.mundrawala.ml/post", requestOptions)
-        .then(response => response.text())
-        .then(result => {
-          this.load = false
-          location.reload();
-          console.log(result)})
-        .catch(error => {
-          this.load=false
-          console.log('error', error)});
+      if (this.auth) {
+        fetch("https://api.mundrawala.ml/post", requestOptions)
+          .then(response => response.text())
+          .then(result => {
+            this.load = false
+            location.reload();
+            console.log(result)
+          })
+          .catch(error => {
+            this.load = false
+            console.log('error', error)
+          });
+      }
 
     }
   }
