@@ -101,6 +101,7 @@ html {
   border-radius: 5px 15px 5px 15px;
   padding: 10px;
   height: 150px;
+  margin: 5px;
   border-width: 1px;
   border-color: rgba(238, 205, 20, 0.3);
   border-style: solid;
