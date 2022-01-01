@@ -97,25 +97,19 @@ html {
 }
 
 .title-box {
-  background-color: rgba(238, 205, 20, 0.1);
-  border-radius: 5px 15px 5px 15px;
+  background-color: rgba(238, 205, 20, 0.2);
+  border-radius: 5px;
   padding: 10px;
   height: 150px;
   margin: 10px;
-  border-width: 1px;
-  border-color: rgba(238, 205, 20, 0.3);
-  border-style: solid;
   text-align: left;
 }
 
 .content-box {
-  background-color: rgba(238, 205, 20, 0.1);
-  border-radius: 5px 15px 5px 15px;
+  background-color: rgba(238, 205, 20, 0.2);
+  border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  border-width: 1px;
-  border-color: rgba(238, 205, 20, 0.3);
-  border-style: solid;
   text-align: justify;
   text-justify: inter-word;
 }
