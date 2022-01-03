@@ -53,7 +53,7 @@
         <div class="container">
           <a class="link-dark navbar-brand site-title mb-0" href="https://www.mundrawala.ml/" target="blank"><img
               src="images/logo.png" alt=""></a>
-          <a class="link-dark navbar-brand site-title mb-0" href="https://blog.mundrawala.ml/"><span
+          <a class="link-dark navbar-brand site-title mb-0" href="index.html"><span
               style=" font-weight: bold; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color: rgb(238, 205, 20); font-size: x-large;">Mundrawala's
               Words</span></a>
         </div>
@@ -63,23 +63,38 @@
     <div class="page-content">
       <div id="content">
         <div class="section px-3 px-lg-4 pt-5">
-          <div class="container-narrow">
-            <div class="text-center mb-5">
-              <h2 class="marker-center" style="text-transform: capitalize;">
-               {{post.title}}
-              </h2>
-            </div>
-            <span style="color: gray; margin: 15px;">
-              {{post.date}}</span>
-            <div class="row" style="margin: 20px;">
-              <!-- <div class="col" style="display: flex; justify-content: space-around;">dsfg</div>
-              <div class="col" style="display: flex; justify-content: space-around;">dsfg</div> -->
-            </div>
+          <div class="container-narrow row">
             <div class="row">
-              <div class="col-md-12" data-aos="fade-up" data-aos-delay="500" style="width: 100%; word-wrap: break-word;">
-                <div class="content-box" v-html="decodeURIComponent(post.content)">
+              <div class="col-md-10 content-box" data-aos="fade-up" data-aos-delay="500"
+                style="word-wrap: break-word;">
+                <div class="text-center mb-5">
+                  <h2 class="marker-center" style="text-transform: capitalize;">
+                    {{post.title}}
+                  </h2>
+                  <span style="color: gray; font-size: small; ">
+                    Posted on- {{post.date}}</span>
+                </div>
+                <div>
+                  <ul style="list-style: none;">
+                    <li style="display: inline; margin: 0px 5px; background-color: rgba(255, 255, 0,0.5); padding: 5px; font-weight: bolder; border-radius: 25px;" v-for="t in tags" :key="t">
+                        #{{t}}
+                    </li>
+                  </ul>
+                </div>
+                <div class="" v-html="decodeURIComponent(post.content)">
                 </div>
               </div>
+              <div class="col-md" data-aos="fade-up" data-aos-delay="500"
+                style="word-wrap: break-word; text-align: center; padding: 10px;">
+                <div class="text-center mb-5">
+                  <h6 class="marker-center" style="text-transform: capitalize;">
+                    READ NEXT
+                  </h6>
+                  <ul style="list-style: none;">
+                    <li v-for="p in all" :key="p" v-if="p.title!=post.title" style="text-transform: capitalize; text-align: left; padding: 5px;"><a style="text-decoration: none;" :href="'content.html?title='+p.key">{{p.key}}</a></li>
+                  </ul>
+                </div>
+                </div>
             </div>
           </div>
         </div>

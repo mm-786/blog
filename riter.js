@@ -42,6 +42,7 @@ new Vue({
       const raw = JSON.stringify({
         "title": this.title,
         "content": this.message,
+        "tags":this.tags
       });
 
       const requestOptions = {
