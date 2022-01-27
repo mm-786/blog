@@ -53,7 +53,7 @@ new Vue({
       };
 
       if (this.auth) {
-        fetch("https://api.mundrawala.ml/post", requestOptions)
+        fetch("https://mrtz.deta.dev/post", requestOptions)
           .then(response => response.text())
           .then(result => {
             this.load = false

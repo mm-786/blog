@@ -14,7 +14,7 @@ new Vue({
         redirect: 'follow'
       };
 
-      fetch("https://api.mundrawala.ml/posts", requestOptions)
+      fetch("https://mrtz.deta.dev/posts", requestOptions)
         .then(response => response.text())
         .then(result => {
           const data = JSON.parse(result);
